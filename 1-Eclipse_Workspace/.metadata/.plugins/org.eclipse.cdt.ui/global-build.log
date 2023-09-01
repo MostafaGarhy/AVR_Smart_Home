@@ -174,3 +174,416 @@ Data:          4 bytes (0.2% Full)
 
 Finished building: sizedummy
  
+16:26:06 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2116 bytes (6.5% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:30:46 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../DIO_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
+Finished building: ../DIO_Program.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2118 bytes (6.5% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:34:52 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../DIO_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
+Finished building: ../DIO_Program.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2118 bytes (6.5% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:52:17 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:23: error: 'DIO' undeclared (first use in this function)
+../main.c:23: error: (Each undeclared identifier is reported only once
+../main.c:23: error: for each function it appears in.)
+../main.c:24: error: expected ';' before '}' token
+make: *** [main.o] Error 1
+17:08:56 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2218 bytes (6.8% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:10:48 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2318 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:11:10 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2318 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:12:57 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../DIO_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
+Finished building: ../DIO_Program.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2316 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:13:25 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2316 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:16:00 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2316 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:16:19 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2316 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:16:38 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2316 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:16:53 **** Incremental Build of configuration Debug for project Smart_Home ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Smart_Home.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
+Finished building target: Smart_Home.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
+Finished building: Smart_Home.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
+Finished building: Smart_Home.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2316 bytes (7.1% Full)
+(.text + .data + .bootloader)
+
+Data:          4 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

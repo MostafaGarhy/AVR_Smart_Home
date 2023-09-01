@@ -3,13 +3,13 @@ Smart_Home.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000844  00000000  00000000  00000074  2**1
+  0 .text         0000090c  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss          00000004  00800060  00800060  000008b8  2**0
+  1 .bss          00000004  00800060  00800060  00000980  2**0
                   ALLOC
-  2 .stab         0000090c  00000000  00000000  000008b8  2**2
+  2 .stab         0000093c  00000000  00000000  00000980  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000445  00000000  00000000  000011c4  2**0
+  3 .stabstr      00000445  00000000  00000000  000012bc  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -59,7 +59,7 @@ Disassembly of section .text:
   6c:	b1 07       	cpc	r27, r17
   6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
   70:	0e 94 19 04 	call	0x832	; 0x832 <main>
-  74:	0c 94 20 04 	jmp	0x840	; 0x840 <_exit>
+  74:	0c 94 84 04 	jmp	0x908	; 0x908 <_exit>
 
 00000078 <__bad_interrupt>:
   78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -86,72 +86,72 @@ void DIO_VidInit (void)
 							DIO_PINA1_INITIAL_DIR,
 							DIO_PINA0_INITIAL_DIR);
 	
-	DDRB_U8_REG = Reg_Problem(DIO_PINB0_INITIAL_DIR,
+	DDRB_U8_REG = Reg_Problem(DIO_PINB7_INITIAL_DIR,
   8c:	e7 e3       	ldi	r30, 0x37	; 55
   8e:	f0 e0       	ldi	r31, 0x00	; 0
   90:	8f ef       	ldi	r24, 0xFF	; 255
   92:	80 83       	st	Z, r24
-							DIO_PINB4_INITIAL_DIR,
-							DIO_PINB5_INITIAL_DIR,
-							DIO_PINB6_INITIAL_DIR,
-							DIO_PINB7_INITIAL_DIR);
+							DIO_PINB3_INITIAL_DIR,
+							DIO_PINB2_INITIAL_DIR,
+							DIO_PINB1_INITIAL_DIR,
+							DIO_PINB0_INITIAL_DIR);
 							
-	DDRC_U8_REG = Reg_Problem(DIO_PINC0_INITIAL_DIR,
+	DDRC_U8_REG = Reg_Problem(DIO_PINC7_INITIAL_DIR,
   94:	e4 e3       	ldi	r30, 0x34	; 52
   96:	f0 e0       	ldi	r31, 0x00	; 0
   98:	8f ef       	ldi	r24, 0xFF	; 255
   9a:	80 83       	st	Z, r24
-							DIO_PINC4_INITIAL_DIR,
-							DIO_PINC5_INITIAL_DIR,
-							DIO_PINC6_INITIAL_DIR,
-							DIO_PINC7_INITIAL_DIR);
+							DIO_PINC3_INITIAL_DIR,
+							DIO_PINC2_INITIAL_DIR,
+							DIO_PINC1_INITIAL_DIR,
+							DIO_PINC0_INITIAL_DIR);
 	
-	DDRD_U8_REG = Reg_Problem(DIO_PIND0_INITIAL_DIR,
+	DDRD_U8_REG = Reg_Problem(DIO_PIND7_INITIAL_DIR,
   9c:	e1 e3       	ldi	r30, 0x31	; 49
   9e:	f0 e0       	ldi	r31, 0x00	; 0
   a0:	8f ef       	ldi	r24, 0xFF	; 255
   a2:	80 83       	st	Z, r24
-							DIO_PIND5_INITIAL_DIR,
-							DIO_PIND6_INITIAL_DIR,
-							DIO_PIND7_INITIAL_DIR);
+							DIO_PIND2_INITIAL_DIR,
+							DIO_PIND1_INITIAL_DIR,
+							DIO_PIND0_INITIAL_DIR);
 
 	/* Initiate PORTx */
-	PORTA_U8_REG = Reg_Problem(DIO_PINA0_INITIAL_VAL,
+	PORTA_U8_REG = Reg_Problem(DIO_PINA7_INITIAL_VAL,
   a4:	eb e3       	ldi	r30, 0x3B	; 59
   a6:	f0 e0       	ldi	r31, 0x00	; 0
   a8:	10 82       	st	Z, r1
-							 DIO_PINA4_INITIAL_VAL,
-							 DIO_PINA5_INITIAL_VAL,
-							 DIO_PINA6_INITIAL_VAL,
-							 DIO_PINA7_INITIAL_VAL);
+							 DIO_PINA3_INITIAL_VAL,
+							 DIO_PINA2_INITIAL_VAL,
+						     DIO_PINA1_INITIAL_VAL,
+							 DIO_PINA0_INITIAL_VAL);
 							 
-	PORTB_U8_REG = Reg_Problem(DIO_PINB0_INITIAL_VAL,
+	PORTB_U8_REG = Reg_Problem(DIO_PINB7_INITIAL_VAL,
   aa:	e8 e3       	ldi	r30, 0x38	; 56
   ac:	f0 e0       	ldi	r31, 0x00	; 0
   ae:	10 82       	st	Z, r1
-							 DIO_PINB4_INITIAL_VAL,
-							 DIO_PINB5_INITIAL_VAL,
-							 DIO_PINB6_INITIAL_VAL,
-							 DIO_PINB7_INITIAL_VAL);
+							 DIO_PINB3_INITIAL_VAL,
+							 DIO_PINB2_INITIAL_VAL,
+						     DIO_PINB1_INITIAL_VAL,
+							 DIO_PINB0_INITIAL_VAL);
 							 
-	PORTC_U8_REG = Reg_Problem(DIO_PINC0_INITIAL_VAL,
+	PORTC_U8_REG = Reg_Problem(DIO_PINC7_INITIAL_VAL,
   b0:	e5 e3       	ldi	r30, 0x35	; 53
   b2:	f0 e0       	ldi	r31, 0x00	; 0
   b4:	10 82       	st	Z, r1
-							 DIO_PINC4_INITIAL_VAL,
-							 DIO_PINC5_INITIAL_VAL,
-							 DIO_PINC6_INITIAL_VAL,
-							 DIO_PINC7_INITIAL_VAL);
+							 DIO_PINC3_INITIAL_VAL,
+							 DIO_PINC2_INITIAL_VAL,
+						     DIO_PINC1_INITIAL_VAL,
+							 DIO_PINC0_INITIAL_VAL);
 							 
-	PORTD_U8_REG = Reg_Problem(DIO_PIND0_INITIAL_VAL,
+	PORTD_U8_REG = Reg_Problem(DIO_PIND7_INITIAL_VAL,
   b6:	e2 e3       	ldi	r30, 0x32	; 50
   b8:	f0 e0       	ldi	r31, 0x00	; 0
   ba:	10 82       	st	Z, r1
-							 DIO_PIND3_INITIAL_VAL,
 							 DIO_PIND4_INITIAL_VAL,
-							 DIO_PIND5_INITIAL_VAL,
-							 DIO_PIND6_INITIAL_VAL,
-							 DIO_PIND7_INITIAL_VAL);
+							 DIO_PIND3_INITIAL_VAL,
+							 DIO_PIND2_INITIAL_VAL,
+						     DIO_PIND1_INITIAL_VAL,
+							 DIO_PIND0_INITIAL_VAL);
 }
   bc:	cf 91       	pop	r28
   be:	df 91       	pop	r29
@@ -1322,10 +1322,83 @@ int main()
  838:	de b7       	in	r29, 0x3e	; 62
 	DIO_VidInit();
  83a:	0e 94 3e 00 	call	0x7c	; 0x7c <DIO_VidInit>
- 83e:	ff cf       	rjmp	.-2      	; 0x83e <main+0xc>
 
-00000840 <_exit>:
- 840:	f8 94       	cli
+	while(1)
+	{
+		DIO_VidSetPinValue(DIO_U8_PORTA, DIO_U8_PIN3, DIO_PIN_HIGH);
+ 83e:	80 e0       	ldi	r24, 0x00	; 0
+ 840:	63 e0       	ldi	r22, 0x03	; 3
+ 842:	41 e0       	ldi	r20, 0x01	; 1
+ 844:	0e 94 62 01 	call	0x2c4	; 0x2c4 <DIO_VidSetPinValue>
+		delay_ms(1000);
+ 848:	88 ef       	ldi	r24, 0xF8	; 248
+ 84a:	92 eb       	ldi	r25, 0xB2	; 178
+ 84c:	a3 e0       	ldi	r26, 0x03	; 3
+ 84e:	b0 e0       	ldi	r27, 0x00	; 0
+ 850:	80 93 60 00 	sts	0x0060, r24
+ 854:	90 93 61 00 	sts	0x0061, r25
+ 858:	a0 93 62 00 	sts	0x0062, r26
+ 85c:	b0 93 63 00 	sts	0x0063, r27
+ 860:	14 c0       	rjmp	.+40     	; 0x88a <__stack+0x2b>
+ 862:	00 00       	nop
+ 864:	80 91 60 00 	lds	r24, 0x0060
+ 868:	90 91 61 00 	lds	r25, 0x0061
+ 86c:	a0 91 62 00 	lds	r26, 0x0062
+ 870:	b0 91 63 00 	lds	r27, 0x0063
+ 874:	01 97       	sbiw	r24, 0x01	; 1
+ 876:	a1 09       	sbc	r26, r1
+ 878:	b1 09       	sbc	r27, r1
+ 87a:	80 93 60 00 	sts	0x0060, r24
+ 87e:	90 93 61 00 	sts	0x0061, r25
+ 882:	a0 93 62 00 	sts	0x0062, r26
+ 886:	b0 93 63 00 	sts	0x0063, r27
+ 88a:	80 91 60 00 	lds	r24, 0x0060
+ 88e:	90 91 61 00 	lds	r25, 0x0061
+ 892:	a0 91 62 00 	lds	r26, 0x0062
+ 896:	b0 91 63 00 	lds	r27, 0x0063
+ 89a:	00 97       	sbiw	r24, 0x00	; 0
+ 89c:	a1 05       	cpc	r26, r1
+ 89e:	b1 05       	cpc	r27, r1
+ 8a0:	01 f7       	brne	.-64     	; 0x862 <__stack+0x3>
+		DIO_VidSetPinValue(DIO_U8_PORTA, DIO_U8_PIN3, DIO_PIN_LOW);
+ 8a2:	80 e0       	ldi	r24, 0x00	; 0
+ 8a4:	63 e0       	ldi	r22, 0x03	; 3
+ 8a6:	40 e0       	ldi	r20, 0x00	; 0
+ 8a8:	0e 94 62 01 	call	0x2c4	; 0x2c4 <DIO_VidSetPinValue>
+		delay_ms(1000);
+ 8ac:	88 ef       	ldi	r24, 0xF8	; 248
+ 8ae:	92 eb       	ldi	r25, 0xB2	; 178
+ 8b0:	a3 e0       	ldi	r26, 0x03	; 3
+ 8b2:	b0 e0       	ldi	r27, 0x00	; 0
+ 8b4:	80 93 60 00 	sts	0x0060, r24
+ 8b8:	90 93 61 00 	sts	0x0061, r25
+ 8bc:	a0 93 62 00 	sts	0x0062, r26
+ 8c0:	b0 93 63 00 	sts	0x0063, r27
+ 8c4:	14 c0       	rjmp	.+40     	; 0x8ee <__stack+0x8f>
+ 8c6:	00 00       	nop
+ 8c8:	80 91 60 00 	lds	r24, 0x0060
+ 8cc:	90 91 61 00 	lds	r25, 0x0061
+ 8d0:	a0 91 62 00 	lds	r26, 0x0062
+ 8d4:	b0 91 63 00 	lds	r27, 0x0063
+ 8d8:	01 97       	sbiw	r24, 0x01	; 1
+ 8da:	a1 09       	sbc	r26, r1
+ 8dc:	b1 09       	sbc	r27, r1
+ 8de:	80 93 60 00 	sts	0x0060, r24
+ 8e2:	90 93 61 00 	sts	0x0061, r25
+ 8e6:	a0 93 62 00 	sts	0x0062, r26
+ 8ea:	b0 93 63 00 	sts	0x0063, r27
+ 8ee:	80 91 60 00 	lds	r24, 0x0060
+ 8f2:	90 91 61 00 	lds	r25, 0x0061
+ 8f6:	a0 91 62 00 	lds	r26, 0x0062
+ 8fa:	b0 91 63 00 	lds	r27, 0x0063
+ 8fe:	00 97       	sbiw	r24, 0x00	; 0
+ 900:	a1 05       	cpc	r26, r1
+ 902:	b1 05       	cpc	r27, r1
+ 904:	01 f7       	brne	.-64     	; 0x8c6 <__stack+0x67>
+ 906:	9b cf       	rjmp	.-202    	; 0x83e <main+0xc>
 
-00000842 <__stop_program>:
- 842:	ff cf       	rjmp	.-2      	; 0x842 <__stop_program>
+00000908 <_exit>:
+ 908:	f8 94       	cli
+
+0000090a <__stop_program>:
+ 90a:	ff cf       	rjmp	.-2      	; 0x90a <__stop_program>

@@ -1,0 +1,27 @@
+#ifndef DELAY_H_
+#define DELAY_H_
+
+#include "STD_TYPES.h"
+
+#ifndef F_CPU
+#define F_CPU  	 	 8000000UL
+#endif
+
+#define ERROR_RATIO 		20		//Configured by Mostafa Garhy
+
+u32 DelayCount;
+
+#define delay_s(x)		for( DelayCount = ((F_CPU)*x/ERROR_RATIO); DelayCount > 0; DelayCount--)\
+						{\
+							__asm("NOP");\
+						}
+#define delay_ms(x)		for( DelayCount = ((F_CPU/1000)*x/ERROR_RATIO); DelayCount > 0; DelayCount--)\
+						{\
+							__asm("NOP");\
+						}
+#define delay_us(x)		for( DelayCount = ((F_CPU/1000000)*x/ERROR_RATIO); DelayCount > 0; DelayCount--)\
+						{\
+							__asm("NOP");\
+						}
+
+#endif	/* DELAY_H_ */

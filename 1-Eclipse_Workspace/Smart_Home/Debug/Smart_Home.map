@@ -120,7 +120,7 @@ LOAD e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x844
+.text           0x00000000      0x90c
  *(.vectors)
  .vectors       0x00000000       0x54 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -222,15 +222,15 @@ LOAD e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text.DIO_VidGetPinValue
                 0x00000706      0x12c ./DIO_Program.o
                 0x00000706                DIO_VidGetPinValue
- .text.main     0x00000832        0xe ./main.o
+ .text.main     0x00000832       0xd6 ./main.o
                 0x00000832                main
- .text.libgcc   0x00000840        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000840        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x00000840                . = ALIGN (0x2)
+ .text.libgcc   0x00000908        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000908        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000908                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000840        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000840                exit
-                0x00000840                _exit
+ .fini9         0x00000908        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000908                exit
+                0x00000908                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -249,11 +249,11 @@ LOAD e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000840        0x4 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000908        0x4 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000844                _etext = .
+                0x0000090c                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000844
+.data           0x00800060        0x0 load address 0x0000090c
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -282,8 +282,8 @@ LOAD e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x00800060        0x4 ./main.o
                 0x00800060                DelayCount
                 0x00800064                PROVIDE (__bss_end, .)
-                0x00000844                __data_load_start = LOADADDR (.data)
-                0x00000844                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000090c                __data_load_start = LOADADDR (.data)
+                0x0000090c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800064        0x0
                 0x00800064                PROVIDE (__noinit_start, .)
@@ -308,11 +308,11 @@ LOAD e:/embd/01-sdk/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0x90c
+.stab           0x00000000      0x93c
  *(.stab)
  .stab          0x00000000      0x7f8 ./DIO_Program.o
- .stab          0x000007f8      0x114 ./main.o
-                                0x198 (size before relaxing)
+ .stab          0x000007f8      0x144 ./main.o
+                                0x1c8 (size before relaxing)
 
 .stabstr        0x00000000      0x445
  *(.stabstr)

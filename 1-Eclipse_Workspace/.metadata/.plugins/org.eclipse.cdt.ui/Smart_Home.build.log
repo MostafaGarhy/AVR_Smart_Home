@@ -1,4 +1,4 @@
-22:59:15 **** Incremental Build of configuration Debug for project Smart_Home ****
+17:16:53 **** Incremental Build of configuration Debug for project Smart_Home ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -24,7 +24,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2116 bytes (6.5% Full)
+Program:    2316 bytes (7.1% Full)
 (.text + .data + .bootloader)
 
 Data:          4 bytes (0.2% Full)
@@ -34,5 +34,5 @@ Data:          4 bytes (0.2% Full)
 Finished building: sizedummy
  
 
-22:59:16 Build Finished (took 1s.249ms)
+17:16:54 Build Finished (took 1s.168ms)
 

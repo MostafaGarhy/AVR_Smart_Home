@@ -7,7 +7,7 @@
 #define F_CPU  	 	 8000000UL
 #endif
 
-#define ERROR_RATIO 		14		//Configured by Mostafa Garhy
+#define ERROR_RATIO 		33		//Configured by Mostafa Garhy
 
 u32 DelayCount;
 

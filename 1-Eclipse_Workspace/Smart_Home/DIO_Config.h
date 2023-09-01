@@ -65,7 +65,7 @@
 /*****************************************/
 
 /* PORTA */
-#define DIO_PINA0_INITIAL_VAL               DIO_PIN_Initial_FLOATING         
+#define DIO_PINA0_INITIAL_VAL               DIO_PIN_Initial_FLOATING
 #define DIO_PINA1_INITIAL_VAL               DIO_PIN_Initial_FLOATING         
 #define DIO_PINA2_INITIAL_VAL               DIO_PIN_Initial_FLOATING         
 #define DIO_PINA3_INITIAL_VAL               DIO_PIN_Initial_FLOATING         

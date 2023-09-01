@@ -20,7 +20,10 @@ int main()
 
 	while(1)
 	{
-
+		DIO_VidSetPinValue(DIO_U8_PORTA, DIO_U8_PIN3, DIO_PIN_HIGH);
+		delay_ms(1000);
+		DIO_VidSetPinValue(DIO_U8_PORTA, DIO_U8_PIN3, DIO_PIN_LOW);
+		delay_ms(1000);
 	}
 	return 0;
 }
