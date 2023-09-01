@@ -1,9 +1,9 @@
 /************************************************************************************/
-/*   Authors	:	Bassem Hussien 	- 	Nada Mohammed 	 							*/
-/*   				Sama Saleh	   	- 	Mostafa Ahmed 								*/
-/*   Date		:	3rd Sep	2032													*/
-/*   Project	:	Smart Home														*/
-/*   Version	:	V1.0															*/
+/*   Authors	:	Bassem Hussien 	 -   Nada Mohammed 	 		    */
+/*   			Sama Saleh	 -   Mostafa Ahmed     			    */
+/*   Date	:	3rd Sep	2032 						    */
+/*   Project	:	Smart Home						    */
+/*   Version	:	V1.0							    */
 /************************************************************************************/
 /* LIB */
 #include "STD_TYPES.h"
