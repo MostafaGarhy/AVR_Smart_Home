@@ -1,0 +1,48 @@
+/********************************************************************************/
+/*      Author      :   Mostafa Ahmed Ali                                       */
+/*      Date        :   15th Oct 2022                                           */
+/*      SWC         :   DIO Driver                                              */
+/*      Version     :   V1.3                                                    */
+/*      Desc        :   A private header file includes Macros definitions       */
+/*                      of DIO registers.                                       */
+/********************************************************************************/
+
+#ifndef DIO_PRIVATE_H_
+#define DIO_PRIVATE_H_
+
+/* DDRx Macros */
+#define DDRA_U8_REG 		        *((volatile u8*)0x3A)
+#define DDRB_U8_REG 		        *((volatile u8*)0x37)
+#define DDRC_U8_REG 		        *((volatile u8*)0x34)
+#define DDRD_U8_REG 		        *((volatile u8*)0x31)
+        
+/* PINx Macros */       
+#define PINA_U8_REG 		        *((volatile u8*)0x39)
+#define PINB_U8_REG 		        *((volatile u8*)0x36)
+#define PINC_U8_REG 		        *((volatile u8*)0x33)
+#define PIND_U8_REG 		        *((volatile u8*)0x30)
+        
+/* PORTx Macros */      
+#define PORTA_U8_REG 		        *((volatile u8*)0x3B)
+#define PORTB_U8_REG 		        *((volatile u8*)0x38)
+#define PORTC_U8_REG 		        *((volatile u8*)0x35)
+#define PORTD_U8_REG 		        *((volatile u8*)0x32)
+
+/**************************************/
+/* Reg_Value() : Function Like Macro, */
+/*               initiates Registers  */
+/**************************************/
+#define Reg_Value(val7,val6,val5,val4,val3,val2,val1,val0)          (0b##val7##val6##val5##val4##val3##val2##val1##val0)
+
+/* Initial Pins Directions */
+#define DIO_PIN_Initial_INPUT       	0
+#define DIO_PIN_Initial_OUTPUT			1
+
+/* Initial Pins Values */
+#define DIO_PIN_Initial_HIGH   		    1
+#define DIO_PIN_Initial_LOW  		    0
+#define DIO_PIN_Initial_PULLUP  		1
+#define DIO_PIN_Initial_FLOATING        0
+
+#endif      /* DIO_Private.h */
+

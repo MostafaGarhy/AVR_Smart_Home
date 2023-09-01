@@ -1,0 +1,27 @@
+#ifndef DELAY_H_
+#define DELAY_H_
+
+#include "STD_TYPES.h"
+
+#ifndef CPU_CLK
+#define CPU_CLK  	 	 16000000UL
+#endif
+
+#define ERROR_RATIO 		14		//Configured by Mostafa Garhy
+
+u32 DelayCount;
+
+#define delay_s(x)		for( DelayCount = ((CPU_CLK)*x/ERROR_RATIO); DelayCount > 0; DelayCount--)\
+						{\
+							__asm("NOP");\
+						}
+#define delay_ms(x)		for( DelayCount = ((CPU_CLK/1000)*x/ERROR_RATIO); DelayCount > 0; DelayCount--)\
+						{\
+							__asm("NOP");\
+						}
+#define delay_us(x)		for( DelayCount = ((CPU_CLK/1000000)*x/ERROR_RATIO); DelayCount > 0; DelayCount--)\
+						{\
+							__asm("NOP");\
+						}
+
+#endif	/* DELAY_H_ */

@@ -1,0 +1,291 @@
+/********************************************************************************/
+/*      Author      :   Mostafa Ahmed Ali                                       */
+/*      Date        :   15th Oct 2022                                           */
+/*      SWC         :   DIO Driver                                              */
+/*      Version     :   V1.3                                                    */
+/*      Desc        :   These APIs allow user to Set Directions and Values for  */
+/*                      the DIO Pins and Ports.                                 */
+/*                      Also, Get and Toggle the Pin Value.                     */
+/********************************************************************************/
+/* LIB */
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+/* MCAL */
+#include "DIO_Interface.h"
+#include "DIO_Private.h"
+#include "DIO_Config.h"
+
+void DIO_VidInit (void)
+{
+	/* Initiate DDRx */
+	DDRA_U8_REG = Reg_Problem(DIO_PINA7_INITIAL_DIR,
+							DIO_PINA6_INITIAL_DIR,
+							DIO_PINA5_INITIAL_DIR,
+							DIO_PINA4_INITIAL_DIR,
+							DIO_PINA3_INITIAL_DIR,
+							DIO_PINA2_INITIAL_DIR,
+							DIO_PINA1_INITIAL_DIR,
+							DIO_PINA0_INITIAL_DIR);
+	
+	DDRB_U8_REG = Reg_Value(DIO_PINB0_INITIAL_DIR, 
+							DIO_PINB1_INITIAL_DIR,
+							DIO_PINB2_INITIAL_DIR,
+							DIO_PINB3_INITIAL_DIR,
+							DIO_PINB4_INITIAL_DIR,
+							DIO_PINB5_INITIAL_DIR,
+							DIO_PINB6_INITIAL_DIR,
+							DIO_PINB7_INITIAL_DIR);
+							
+	DDRC_U8_REG = Reg_Value(DIO_PINC0_INITIAL_DIR, 
+							DIO_PINC1_INITIAL_DIR,
+							DIO_PINC2_INITIAL_DIR,
+							DIO_PINC3_INITIAL_DIR,
+							DIO_PINC4_INITIAL_DIR,
+							DIO_PINC5_INITIAL_DIR,
+							DIO_PINC6_INITIAL_DIR,
+							DIO_PINC7_INITIAL_DIR);
+	
+	DDRD_U8_REG = Reg_Value(DIO_PIND0_INITIAL_DIR, 
+							DIO_PIND1_INITIAL_DIR,
+							DIO_PIND2_INITIAL_DIR,
+							DIO_PIND3_INITIAL_DIR,
+							DIO_PIND4_INITIAL_DIR,
+							DIO_PIND5_INITIAL_DIR,
+							DIO_PIND6_INITIAL_DIR,
+							DIO_PIND7_INITIAL_DIR);
+
+	/* Initiate PORTx */
+	PORTA_U8_REG = Reg_Value(DIO_PINA0_INITIAL_VAL,
+						     DIO_PINA1_INITIAL_VAL,
+							 DIO_PINA2_INITIAL_VAL,
+							 DIO_PINA3_INITIAL_VAL,
+							 DIO_PINA4_INITIAL_VAL,
+							 DIO_PINA5_INITIAL_VAL,
+							 DIO_PINA6_INITIAL_VAL,
+							 DIO_PINA7_INITIAL_VAL);
+							 
+	PORTB_U8_REG = Reg_Value(DIO_PINB0_INITIAL_VAL,
+						     DIO_PINB1_INITIAL_VAL,
+							 DIO_PINB2_INITIAL_VAL,
+							 DIO_PINB3_INITIAL_VAL,
+							 DIO_PINB4_INITIAL_VAL,
+							 DIO_PINB5_INITIAL_VAL,
+							 DIO_PINB6_INITIAL_VAL,
+							 DIO_PINB7_INITIAL_VAL);
+							 
+	PORTC_U8_REG = Reg_Value(DIO_PINC0_INITIAL_VAL,
+						     DIO_PINC1_INITIAL_VAL,
+							 DIO_PINC2_INITIAL_VAL,
+							 DIO_PINC3_INITIAL_VAL,
+							 DIO_PINC4_INITIAL_VAL,
+							 DIO_PINC5_INITIAL_VAL,
+							 DIO_PINC6_INITIAL_VAL,
+							 DIO_PINC7_INITIAL_VAL);
+							 
+	PORTD_U8_REG = Reg_Value(DIO_PIND0_INITIAL_VAL,
+						     DIO_PIND1_INITIAL_VAL,
+							 DIO_PIND2_INITIAL_VAL,
+							 DIO_PIND3_INITIAL_VAL,
+							 DIO_PIND4_INITIAL_VAL,
+							 DIO_PIND5_INITIAL_VAL,
+							 DIO_PIND6_INITIAL_VAL,
+							 DIO_PIND7_INITIAL_VAL);
+}
+
+u8 DIO_VidSetPinDirection(u8 Copy_U8Port, u8 Copy_U8Pin, u8 Copy_U8Dir)
+{
+	u8 Local_U8ErrorState = ERR_STATE_OK;
+	/* I/P Validation */
+	if(Copy_U8Port > DIO_U8_PORTD || Copy_U8Pin > DIO_U8_PIN7 || Copy_U8Dir > DIO_PIN_OUTPUT)
+	{
+		Local_U8ErrorState = ERR_STATE_NOK;
+	}
+	else
+	{
+		switch(Copy_U8Port)
+		{
+			case DIO_U8_PORTA: //DDRA_REG
+				if(Copy_U8Dir == DIO_PIN_INPUT)
+					CLR_BIT(DDRA_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Dir == DIO_PIN_OUTPUT)
+					SET_BIT(DDRA_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+			case DIO_U8_PORTB: //DDRB_REG
+				if(Copy_U8Dir == DIO_PIN_INPUT)
+					CLR_BIT(DDRB_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Dir == DIO_PIN_OUTPUT)
+					SET_BIT(DDRB_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+			case DIO_U8_PORTC: //DDRC_REG
+				if(Copy_U8Dir == DIO_PIN_INPUT)
+					CLR_BIT(DDRC_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Dir == DIO_PIN_OUTPUT)
+					SET_BIT(DDRC_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+			case DIO_U8_PORTD: //DDRD_REG
+				if(Copy_U8Dir == DIO_PIN_INPUT)
+					CLR_BIT(DDRD_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Dir == DIO_PIN_OUTPUT)
+					SET_BIT(DDRD_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+		}
+	}
+	return Local_U8ErrorState;
+}
+
+u8 DIO_VidSetPinValue( u8 Copy_U8Port , u8 Copy_U8Pin , u8 Copy_U8Val)
+{
+	u8 Local_U8ErrorState = ERR_STATE_OK;
+	/* I/P Validation */
+	if(Copy_U8Port > DIO_U8_PORTD || Copy_U8Pin > DIO_U8_PIN7 || Copy_U8Val > DIO_PIN_HIGH)
+	{
+		Local_U8ErrorState = ERR_STATE_NOK;
+	}
+	else
+	{
+		switch(Copy_U8Port)
+		{
+			case DIO_U8_PORTA: //PORTA_REG
+				if(Copy_U8Val == DIO_PIN_LOW)
+					CLR_BIT(PORTA_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Val == DIO_PIN_HIGH)
+					SET_BIT(PORTA_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+			case DIO_U8_PORTB: //PORTB_REG
+				if(Copy_U8Val == DIO_PIN_LOW)
+					CLR_BIT(PORTB_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Val == DIO_PIN_HIGH)
+					SET_BIT(PORTB_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+			case DIO_U8_PORTC: //PORTC_REG
+				if(Copy_U8Val == DIO_PIN_LOW)
+					CLR_BIT(PORTC_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Val == DIO_PIN_HIGH)
+					SET_BIT(PORTC_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+			case DIO_U8_PORTD: //PORTD_REG
+				if(Copy_U8Val == DIO_PIN_LOW)
+					CLR_BIT(PORTD_U8_REG, Copy_U8Pin);
+				else if(Copy_U8Val == DIO_PIN_HIGH)
+					SET_BIT(PORTD_U8_REG, Copy_U8Pin);
+				else
+				{
+					/* Do Nothing */
+				}
+			break;
+		}
+	}
+	return Local_U8ErrorState;
+}
+
+u8 DIO_VidSetPortDirection(u8 Copy_U8Port, u8 Copy_U8Dir)
+{
+	u8 Local_U8ErrorState = ERR_STATE_OK;
+	/* I/P Validation */
+	if(Copy_U8Port > DIO_U8_PORTD || Copy_U8Dir > DIO_PORT_ALL_OUTPUT)
+	{
+		Local_U8ErrorState = ERR_STATE_NOK;
+	}
+	else
+	{
+		switch(Copy_U8Port)
+		{
+			case DIO_U8_PORTA:	DDRA_U8_REG = Copy_U8Dir;	break;
+			case DIO_U8_PORTB:	DDRB_U8_REG = Copy_U8Dir;	break;
+			case DIO_U8_PORTC:	DDRC_U8_REG = Copy_U8Dir;	break;
+			case DIO_U8_PORTD:	DDRD_U8_REG = Copy_U8Dir;	break;
+		}
+	}
+	return Local_U8ErrorState;
+}
+
+u8 DIO_VidSetPortValue(u8 Copy_U8Port, u8 Copy_U8Val)
+{
+	u8 Local_U8ErrorState = ERR_STATE_OK;
+	/* I/P Validation */
+	if(Copy_U8Port > DIO_U8_PORTD || Copy_U8Val > DIO_PORT_ALL_HIGH)
+	{
+		Local_U8ErrorState = ERR_STATE_NOK;
+	}
+	else
+	{
+		switch(Copy_U8Port)
+		{
+			case DIO_U8_PORTA:	PORTA_U8_REG = Copy_U8Val;	break;
+			case DIO_U8_PORTB:	PORTB_U8_REG = Copy_U8Val;	break;
+			case DIO_U8_PORTC:	PORTC_U8_REG = Copy_U8Val;	break;
+			case DIO_U8_PORTD:	PORTD_U8_REG = Copy_U8Val;	break;
+		}
+	}
+	return Local_U8ErrorState;
+}
+
+u8 DIO_VidTogglePinValue(u8 Copy_U8Port, u8 Copy_U8Pin)
+{
+	u8 Local_U8ErrorState = ERR_STATE_OK;
+	/* I/P Validation */
+	if(Copy_U8Port > DIO_U8_PORTD || Copy_U8Pin > DIO_U8_PIN7)
+	{
+		Local_U8ErrorState = ERR_STATE_NOK;
+	}
+	else
+	{
+		switch (Copy_U8Port)
+		{
+			case DIO_U8_PORTA: TOGGLE_BIT(PORTA_U8_REG, Copy_U8Pin); break;
+			case DIO_U8_PORTB: TOGGLE_BIT(PORTB_U8_REG, Copy_U8Pin); break;
+			case DIO_U8_PORTC: TOGGLE_BIT(PORTC_U8_REG, Copy_U8Pin); break;
+			case DIO_U8_PORTD: TOGGLE_BIT(PORTD_U8_REG, Copy_U8Pin); break;
+		}
+	}
+	return Local_U8ErrorState;
+}
+
+u8 DIO_VidGetPinValue(u8 Copy_U8Port, u8 Copy_U8Pin, u8 *Copy_U8PinValue)
+{
+	u8 Local_U8ErrorState = ERR_STATE_OK;
+	/* I/P Validation */
+	if(Copy_U8Port > DIO_U8_PORTD || Copy_U8Pin > DIO_U8_PIN7 || Copy_U8PinValue == NULL_PTR)
+	{
+		Local_U8ErrorState = ERR_STATE_NOK;
+	}
+	else
+	{
+		switch (Copy_U8Port)
+		{
+			case DIO_U8_PORTA: *Copy_U8PinValue =  GET_BIT(PORTA_U8_REG, Copy_U8Pin); break;
+			case DIO_U8_PORTB: *Copy_U8PinValue =  GET_BIT(PORTB_U8_REG, Copy_U8Pin); break;
+			case DIO_U8_PORTC: *Copy_U8PinValue =  GET_BIT(PORTC_U8_REG, Copy_U8Pin); break;
+			case DIO_U8_PORTD: *Copy_U8PinValue =  GET_BIT(PORTD_U8_REG, Copy_U8Pin); break;
+		}
+	}
+	return Local_U8ErrorState;
+}

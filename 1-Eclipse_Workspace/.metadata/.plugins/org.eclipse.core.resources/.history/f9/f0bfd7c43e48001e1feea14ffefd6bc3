@@ -1,0 +1,12 @@
+/*
+ * main.c
+ *
+ *  Created on: Aug 31, 2023
+ *      Author: ma257
+ */
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "delay.h"
+
+
