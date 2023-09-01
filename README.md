@@ -1,2 +1,3 @@
 # AVR_Smart_Home
-This repo has Smart Home project files implemented on AVR Atmega32.
+This repo is updated with the Smart Home project files
+that implemented on AVR Atmega32.
