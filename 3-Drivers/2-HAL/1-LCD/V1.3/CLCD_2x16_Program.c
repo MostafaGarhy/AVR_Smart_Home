@@ -1,0 +1,285 @@
+/****************************************************************************/
+/*    Author	:	Mostafa Ahmed Garhy		                                */
+/*    SWC		:	CLCD Driver				                                */
+/*    File		:	CLCD_2x16_Program.c		                                */
+/*    Date		:	30 Aug 2023				                                */
+/*    Version 	:	V1.3					                                */
+/*    Desc		:	This APIs allows user to Display characters, strings,   */
+/*    				and unsigned and signed numbers on 2x16 CLCD            */
+/****************************************************************************/
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "delay.h"
+
+#include "CLCD_2x16_Interface.h"
+#include "CLCD_2x16_Private.h"
+#include "DIO_interface.h"
+
+/* Array of ASCII Numbers for Characters of number 0-->9 */
+const u8 Arr_Nums[10] = {0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39};
+
+/* Array saves digits of numbers */
+u8 Arr_char[DIGITS_RNG];
+
+/* Array of LCD Data Pins in 4-Bit Mode */
+const u8 LCD_Data_Pins[4] = {LCD_PIN4, LCD_PIN5, LCD_PIN6, LCD_PIN7};
+
+void CLCD_VidSendCmd(u8 Copy_U8Cmd)
+{
+#if 	(LCD_MODE ==	LCD_8_BIT_MODE)
+		/* Control pins settings */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RS_PIN, PIN_U8_VALUE_LOW);
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RW_PIN, PIN_U8_VALUE_LOW);
+
+		/* Entering the command here */
+		DIO_VidSetPortValue(LCD_PORT, Copy_U8Cmd);
+
+		/* Enable sequence */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_HIGH);
+		delay_ms(2);
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_LOW);
+#elif 	(LCD_MODE == LCD_4_BIT_MODE)
+		/* Control pins settings */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RS_PIN, PIN_U8_VALUE_LOW);
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RW_PIN, PIN_U8_VALUE_LOW);
+		/* Sending Upper Nibble On Command */
+		DIO_VidSetPortValue(LCD_PORT, Copy_U8Cmd);
+		/* Enable sequence --> High */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_HIGH);
+		delay_us(1);
+		/* Enable sequence --> Low */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_LOW);
+		delay_us(200);
+		/* Write On Command Least Lower Nibble */
+		DIO_VidSetPortValue(LCD_PORT, (Copy_U8Cmd << 4));
+		/* Enable sequence --> High */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_HIGH);
+		delay_us(1);
+		/* Enable sequence --> Low */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_LOW);
+		delay_ms(2);
+#endif
+}
+
+void CLCD_VidInit(void)
+{
+#if 	(LCD_MODE ==	LCD_8_BIT_MODE)
+		/* Initialization of Data and Command PORTS */
+		DIO_VidSetPortDirection(LCD_PORT, PORT_U8_VALUE_ALL_HIGH);
+		DIO_VidSetPinDirection(LCD_CTRL, LCD_RS_PIN, PIN_U8_DIR_OUTPUT);
+		DIO_VidSetPinDirection(LCD_CTRL, LCD_RW_PIN, PIN_U8_DIR_OUTPUT);
+		DIO_VidSetPinDirection(LCD_CTRL, LCD_EN_PIN, PIN_U8_DIR_OUTPUT);
+
+		delay_ms(35);
+		CLCD_VidSendCmd(FUNC_SET_5X10_4BIT_MODE);
+		CLCD_VidSendCmd(Disp_ON_OFF);
+		#if CURSOR == CURS_OFF
+			CLCD_VidSendCmd(CURSOR_OFF);
+		#else
+			CLCD_VidSendCmd(CURSOR_ON);
+		#endif
+		CLCD_VidSendCmd(Disp_CLR);
+#elif 	(LCD_MODE == LCD_4_BIT_MODE)
+		/* Initialization of Data and Command PORTS */
+		DIO_VidSetPortDirection(LCD_PORT, 0xF0);
+		DIO_VidSetPinDirection(LCD_CTRL, LCD_RS_PIN, PIN_U8_DIR_OUTPUT);
+		DIO_VidSetPinDirection(LCD_CTRL, LCD_RW_PIN, PIN_U8_DIR_OUTPUT);
+		DIO_VidSetPinDirection(LCD_CTRL, LCD_EN_PIN, PIN_U8_DIR_OUTPUT);
+		/* LCD Power ON delay always >15ms */
+		delay_ms(35);
+		CLCD_VidSendCmd(0x33);
+		/* send for 4 bit initialization of LCD  */
+		CLCD_VidSendCmd(0x32);
+		/* Use 2 line and initialize 5*7 matrix in (4-bit mode)*/
+		CLCD_VidSendCmd(0x28);
+		#if CURSOR == CURS_OFF
+			CLCD_VidSendCmd(CURSOR_OFF);
+		#else
+			CLCD_VidSendCmd(CURSOR_ON);
+		#endif
+		/* Increment cursor (shift cursor to right) */
+		CLCD_VidSendCmd(CURSOR_SHR);
+		/* Clear display screen*/
+		CLCD_VidSendCmd(Disp_CLR);
+		CLCD_VidSendCmd (0x80);
+#endif
+}
+void CLCD_VidWriteChar(u8 Copy_U8Character)
+{
+#if 	(LCD_MODE ==	LCD_8_BIT_MODE)
+		/* Control pins settings */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RS_PIN, PIN_U8_VALUE_HIGH);
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RW_PIN, PIN_U8_VALUE_LOW);
+
+		/* Entering the data here */
+		DIO_VidSetPortValue(LCD_PORT, Copy_U8Character);
+
+		/* Enable sequence */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_HIGH);
+		delay_ms(2);
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_LOW);
+
+#elif 	(LCD_MODE == LCD_4_BIT_MODE)
+		/* Control pins settings */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RS_PIN, PIN_U8_VALUE_HIGH);
+		DIO_VidSetPinValue(LCD_CTRL, LCD_RW_PIN, PIN_U8_VALUE_LOW);
+		/* Entering the data here */
+		DIO_VidSetPortValue(LCD_PORT, Copy_U8Character);
+		/* Enable sequence --> High */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_HIGH);
+		delay_us(1);
+		/* Enable sequence --> Low */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_LOW);
+		delay_us(200);
+		/* Write On Char Least Significant */
+		DIO_VidSetPortValue(LCD_PORT, (Copy_U8Character << 4));
+		/* Enable sequence --> High */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_HIGH);
+		delay_us(1);
+		/* Enable sequence --> Low */
+		DIO_VidSetPinValue(LCD_CTRL, LCD_EN_PIN, PIN_U8_VALUE_LOW);
+#endif
+}
+
+void CLCD_VidWriteString(u8 *Copy_U8String)
+{
+	while(*Copy_U8String > NULL_STR)
+	{
+		CLCD_VidWriteChar(*Copy_U8String++);
+	}
+}
+
+void CLCD_VidClearScreen(void)
+{
+	CLCD_VidSendCmd(Disp_CLR);
+}
+
+void CLCD_VidGoToXY(u8 Copy_U8YRow, u8 Copy_U8XCol)
+{
+	/* I/P Validation */
+	if(Copy_U8YRow > 2 || Copy_U8YRow <= 0 || Copy_U8XCol > 15 || Copy_U8XCol < 0)
+	{
+		/* Do Nothing */
+	}
+	else
+	{
+		switch(Copy_U8YRow)
+		{
+			case 1 : CLCD_VidSendCmd(0x80 + Copy_U8XCol);break;
+			case 2 : CLCD_VidSendCmd(0xc0 + Copy_U8XCol);break;
+		}
+	}
+}
+
+void CLCD_VidWriteDigitToChar(u8 Copy_U8Digit)
+{
+	CLCD_VidWriteChar(Arr_Nums[Copy_U8Digit]);
+}
+
+void CLCD_VidWriteNumToStr(s32 Copy_U32Number)
+{
+	u8 counter = 0;
+	s32 Local_qoutient = Copy_U32Number, Local_remainder = Copy_U32Number;
+	if(Copy_U32Number == 0)
+	{
+		CLCD_VidWriteChar(' ');
+		CLCD_VidWriteDigitToChar(0);
+		CLCD_VidWriteChar(' ');
+	}
+	else
+	{
+		if(Copy_U32Number > 0)   //Positive number
+		{
+			/* Reserving each digit in Arr_char */
+			while(Local_qoutient /10 > 0)
+			{
+				Local_remainder = Local_qoutient % 10;
+				Local_qoutient /= 10;
+				Arr_char[counter++] =  Local_remainder;
+			}
+			Local_remainder = Local_qoutient % 10;
+			Arr_char[counter] = Local_remainder;
+		}
+		else					//Negative number
+		{
+			CLCD_VidWriteChar('-');
+			Copy_U32Number *= -1;
+			Local_qoutient = Copy_U32Number, Local_remainder = Copy_U32Number;
+			/* Reserving each digit in Arr_char */
+			while(Local_qoutient /10 > 0)
+			{
+				Local_remainder = Local_qoutient % 10;
+				Local_qoutient /= 10;
+				Arr_char[counter++] =  Local_remainder;
+			}
+			Local_remainder = Local_qoutient % 10;
+			Arr_char[counter] = Local_remainder;
+		}
+		CLCD_VidWriteChar(' ');
+		for(s8 i = counter; i >= 0; i--)
+		{
+			CLCD_VidWriteDigitToChar(Arr_char[i]);
+		}
+		CLCD_VidWriteChar(' ');
+	}
+}
+
+void CLCD_VidShiftAll(u8 Copy_U8ShiftType, u8 Copy_U8ShiftNumber)
+{
+	/* I/P Validation */
+	if(Copy_U8ShiftType > RIGHT || Copy_U8ShiftNumber <= 0)
+	{
+		/* Do Nothing */
+	}
+	else
+	{
+		if(1 == Copy_U8ShiftNumber)
+		{
+			switch(Copy_U8ShiftType)
+			{
+				case LEFT 	: 	CLCD_VidSendCmd(SHL_CMD);break;
+				case RIGHT 	: 	CLCD_VidSendCmd(SHR_CMD);break;
+			}
+		}
+		else
+		{
+			switch(Copy_U8ShiftType)
+			{
+				case LEFT :	for(u8 count = 0 ; count < Copy_U8ShiftNumber ; count++)
+							{
+								CLCD_VidSendCmd(SHL_CMD);
+								delay_ms(100);
+							}
+				break;
+				case RIGHT :for(u8 count = 0 ; count < Copy_U8ShiftNumber ; count++)
+							{
+								CLCD_VidSendCmd(SHR_CMD);
+								delay_ms(100);
+							}
+				break;
+			}
+		}
+	}
+}
+
+void CLCD_VidSetAddressOfCGRAM(void)
+{
+	CLCD_VidSendCmd(0x40);
+}
+
+void CLCD_VidWritePatternOnCGRAM(u8 *Copy_U8PatternArray)
+{
+	/* I/P Validation */
+	if(Copy_U8PatternArray != NULL_PTR)
+	{
+		for(u8 i = 0; i < 8; i++)
+		{
+			CLCD_VidWriteChar(Copy_U8PatternArray[i]);
+		}
+	}
+	else
+	{
+		/* Do Nothing */
+	}
+}
