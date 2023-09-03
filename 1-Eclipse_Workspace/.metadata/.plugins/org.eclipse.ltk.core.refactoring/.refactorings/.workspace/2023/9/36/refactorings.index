@@ -1,0 +1,7 @@
+1693742544972	Delete resource 'Smart_Home/1-MCAL/10-EEPROM'
+1693744142279	Delete 4 resources
+1693745110160	Delete 2 resources
+1693750685027	Delete resource 'Smart_Home/1-MCAL/2-EXTI/V1.0'
+1693750701986	Rename resource 'Smart_Home'
+1693750794781	Delete resource 'Smart_Home_Slave/1-MCAL/8-SPI/SPI_Master'
+1693750801211	Delete resource 'Smart_Home_Master/1-MCAL/8-SPI/SPI_Slave'

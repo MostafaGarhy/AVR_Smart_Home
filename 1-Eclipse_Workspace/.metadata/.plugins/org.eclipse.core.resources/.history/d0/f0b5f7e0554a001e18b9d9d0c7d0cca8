@@ -1,0 +1,87 @@
+/********************************************************************************/
+/*    Author	:	Mostafa Ahmed Garhy		                                    */
+/*    SWC		:	CLCD Driver				                                    */
+/*    File		:	CLCD_2x16_Interface.h		                                */
+/*    Date		:	30 Aug 2023				                                    */
+/*    Version 	:	V1.3					                                    */
+/*    Desc		:	This header file contains CLCD 2x16 Functions Prototypes    */
+/*    				and CLCD Configurations 								    */
+/********************************************************************************/
+#ifndef CLCD_2X16_INTERFACE_H_
+#define CLCD_2X16_INTERFACE_H_
+
+//LCD Initialization Function
+void CLCD_VidInit(void);
+//LCD Send Command Function
+void CLCD_VidSendCmd(u8 Copy_U8Cmd);
+//LCD Write Data Function
+void CLCD_VidWriteChar(u8 Copy_U8Character);
+//LCD Write String Function
+void CLCD_VidWriteString(u8 *Copy_U8String);
+//LCD Clear Screen Function
+void CLCD_VidClearScreen(void);
+//LCD Go To Row_Y and Col_X Function
+void CLCD_VidGoToXY(u8 Copy_U8YRow, u8 Copy_U8XCol);
+//LCD Convert Digit to Char Function
+void CLCD_VidWriteDigitToChar(u8 Copy_U8Digit);
+//LCD Convert Number of 4 digits to String
+void CLCD_VidWriteNumToStr(s32 Copy_U32Number);
+//LCD Shift All Pattern to LEFT or RIGHT
+void CLCD_VidShiftAll(u8 Copy_U8ShiftType, u8 Copy_U8ShiftNumber);
+//LCD Command to set the CGRAM Address
+void CLCD_VidSetAddressOfCGRAM(void);
+//LCD Write Custom Pattern on CGRAM
+void CLCD_VidWritePatternOnCGRAM(u8 *Copy_U8PatternArray);
+
+/* Select LCD Mode :
+ * LCD_8_BIT_MODE - LCD_4_BIT_MODE
+ *********************************************/
+#define LCD_MODE		LCD_8_BIT_MODE
+
+/**********************************************
+ *  LCD Data & Control DIO_Ports Configuration:
+ * 	PORTA_U8_INDEX
+ *	PORTB_U8_INDEX
+ *  PORTC_U8_INDEX
+ *	PORTD_U8_INDEX
+ * ********************************************/
+#define LCD_PORT		PORTA_U8_INDEX
+#define LCD_CTRL		PORTC_U8_INDEX
+
+/**********************************************
+ *  LCD Control Pins Configurations:
+ * 	DIO_U8_PIN0
+ *  DIO_U8_PIN1
+ *  DIO_U8_PIN2
+ *  DIO_U8_PIN3
+ *  DIO_U8_PIN4
+ *  DIO_U8_PIN5
+ *  DIO_U8_PIN6
+ *  DIO_U8_PIN7
+ * ********************************************/
+#define LCD_RS_PIN		DIO_U8_PIN0
+#define LCD_RW_PIN		DIO_U8_PIN1
+#define LCD_EN_PIN		DIO_U8_PIN2
+/* LCD Pins in 4-Bit Mode */
+#define LCD_DATA_PIN4		DIO_U8_PIN4
+#define LCD_DATA_PIN5		DIO_U8_PIN5
+#define LCD_DATA_PIN6		DIO_U8_PIN6
+#define LCD_DATA_PIN7		DIO_U8_PIN7
+
+
+/**********************************************
+ *  LCD Cursor Configuration:
+ * 	CURS_ON
+ *	CURS_OFF
+ * ********************************************/
+#define CURSOR 			 CURS_OFF
+
+/* Maximum Range of Digit for the Number to String */
+#define DIGITS_RNG			10
+
+/* Shifting Type */
+#define RIGHT			1
+#define LEFT			0
+
+
+#endif

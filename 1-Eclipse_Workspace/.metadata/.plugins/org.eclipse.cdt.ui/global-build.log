@@ -1,587 +1,305 @@
-22:41:32 **** Build of configuration Debug for project Smart_Home ****
+16:20:32 **** Clean-only build of configuration Debug for project Smart_Home_Master ****
+make clean 
+rm -rf  Smart_Home.hex  ./2-HAL/4-SERVO_MOTOR/servo.o  ./2-HAL/3-STEPPER_MOTOR/stepper_motor.o  ./2-HAL/2-KPD_4X4/KPD_4X4_Program.o  ./2-HAL/1-LCD/CLCD_2x16_Program.o  ./2-HAL/0-SEVEN_SEG/7Seg_Program.o  ./1-MCAL/9-I2C/I2C_Program.o  ./1-MCAL/8-SPI/SPI_Slave/SPI_Program.o  ./1-MCAL/8-SPI/SPI_Master/SPI_Program.o  ./1-MCAL/7-USART/USART_Program.o  ./1-MCAL/6-HW_ICU/HW_ICU.o  ./1-MCAL/5-TIMER/TIMER_Program.o  ./1-MCAL/4-ADC/ADC_Program.o  ./1-MCAL/3-GIE/GI_program.o  ./1-MCAL/2-EXTI/V2.0/EXTI_Program.o  ./1-MCAL/2-EXTI/V1.0/EXTI_Program.o  ./1-MCAL/1-DIO/DIO_Program.o  ./main.o  sizedummy  Smart_Home.lss  ./2-HAL/4-SERVO_MOTOR/servo.d  ./2-HAL/3-STEPPER_MOTOR/stepper_motor.d  ./2-HAL/2-KPD_4X4/KPD_4X4_Program.d  ./2-HAL/1-LCD/CLCD_2x16_Program.d  ./2-HAL/0-SEVEN_SEG/7Seg_Program.d  ./1-MCAL/9-I2C/I2C_Program.d  ./1-MCAL/8-SPI/SPI_Slave/SPI_Program.d  ./1-MCAL/8-SPI/SPI_Master/SPI_Program.d  ./1-MCAL/7-USART/USART_Program.d  ./1-MCAL/6-HW_ICU/HW_ICU.d  ./1-MCAL/5-TIMER/TIMER_Program.d  ./1-MCAL/4-ADC/ADC_Program.d  ./1-MCAL/3-GIE/GI_program.d  ./1-MCAL/2-EXTI/V2.0/EXTI_Program.d  ./1-MCAL/2-EXTI/V1.0/EXTI_Program.d  ./1-MCAL/1-DIO/DIO_Program.d  ./main.d  Smart_Home.elf
+ 
+16:20:32 **** Build of configuration Debug for project Smart_Home_Master ****
 make all 
-Building file: ../DIO_Program.c
+Building file: ../2-HAL/4-SERVO_MOTOR/servo.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-../DIO_Program.c:28:1: error: invalid suffix "bDIO_PINA0_INITIAL_DIRDIO_PINA1_INITIAL_DIRDIO_PINA2_INITIAL_DIRDIO_PINA3_INITIAL_DIRDIO_PINA4_INITIAL_DIRDIO_PINA5_INITIAL_DIRDIO_PINA6_INITIAL_DIRDIO_PINA7_INITIAL_DIR" on integer constant
-../DIO_Program.c:37:1: error: invalid suffix "bDIO_PINB0_INITIAL_DIRDIO_PINB1_INITIAL_DIRDIO_PINB2_INITIAL_DIRDIO_PINB3_INITIAL_DIRDIO_PINB4_INITIAL_DIRDIO_PINB5_INITIAL_DIRDIO_PINB6_INITIAL_DIRDIO_PINB7_INITIAL_DIR" on integer constant
-../DIO_Program.c:46:1: error: invalid suffix "bDIO_PINC0_INITIAL_DIRDIO_PINC1_INITIAL_DIRDIO_PINC2_INITIAL_DIRDIO_PINC3_INITIAL_DIRDIO_PINC4_INITIAL_DIRDIO_PINC5_INITIAL_DIRDIO_PINC6_INITIAL_DIRDIO_PINC7_INITIAL_DIR" on integer constant
-../DIO_Program.c:55:1: error: invalid suffix "bDIO_PIND0_INITIAL_DIRDIO_PIND1_INITIAL_DIRDIO_PIND2_INITIAL_DIRDIO_PIND3_INITIAL_DIRDIO_PIND4_INITIAL_DIRDIO_PIND5_INITIAL_DIRDIO_PIND6_INITIAL_DIRDIO_PIND7_INITIAL_DIR" on integer constant
-../DIO_Program.c:65:1: error: invalid suffix "bDIO_PINA0_INITIAL_VALDIO_PINA1_INITIAL_VALDIO_PINA2_INITIAL_VALDIO_PINA3_INITIAL_VALDIO_PINA4_INITIAL_VALDIO_PINA5_INITIAL_VALDIO_PINA6_INITIAL_VALDIO_PINA7_INITIAL_VAL" on integer constant
-../DIO_Program.c:74:1: error: invalid suffix "bDIO_PINB0_INITIAL_VALDIO_PINB1_INITIAL_VALDIO_PINB2_INITIAL_VALDIO_PINB3_INITIAL_VALDIO_PINB4_INITIAL_VALDIO_PINB5_INITIAL_VALDIO_PINB6_INITIAL_VALDIO_PINB7_INITIAL_VAL" on integer constant
-../DIO_Program.c:83:1: error: invalid suffix "bDIO_PINC0_INITIAL_VALDIO_PINC1_INITIAL_VALDIO_PINC2_INITIAL_VALDIO_PINC3_INITIAL_VALDIO_PINC4_INITIAL_VALDIO_PINC5_INITIAL_VALDIO_PINC6_INITIAL_VALDIO_PINC7_INITIAL_VAL" on integer constant
-../DIO_Program.c:92:1: error: invalid suffix "bDIO_PIND0_INITIAL_VALDIO_PIND1_INITIAL_VALDIO_PIND2_INITIAL_VALDIO_PIND3_INITIAL_VALDIO_PIND4_INITIAL_VALDIO_PIND5_INITIAL_VALDIO_PIND6_INITIAL_VALDIO_PIND7_INITIAL_VAL" on integer constant
-../DIO_Program.c: In function 'DIO_VidGetPinValue':
-../DIO_Program.c:276: error: 'NULL_PTR' undeclared (first use in this function)
-../DIO_Program.c:276: error: (Each undeclared identifier is reported only once
-../DIO_Program.c:276: error: for each function it appears in.)
-make: *** [DIO_Program.o] Error 1
-22:43:53 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/4-SERVO_MOTOR/servo.d" -MT"2-HAL/4-SERVO_MOTOR/servo.o" -c -o "2-HAL/4-SERVO_MOTOR/servo.o" "../2-HAL/4-SERVO_MOTOR/servo.c"
+Finished building: ../2-HAL/4-SERVO_MOTOR/servo.c
+ 
+Building file: ../2-HAL/3-STEPPER_MOTOR/stepper_motor.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-../DIO_Program.c:28:1: error: invalid suffix "bDIO_PINA0_INITIAL_DIRDIO_PINA1_INITIAL_DIRDIO_PINA2_INITIAL_DIRDIO_PINA3_INITIAL_DIRDIO_PINA4_INITIAL_DIRDIO_PINA5_INITIAL_DIRDIO_PINA6_INITIAL_DIRDIO_PINA7_INITIAL_DIR" on integer constant
-../DIO_Program.c:37:1: error: invalid suffix "bDIO_PINB0_INITIAL_DIRDIO_PINB1_INITIAL_DIRDIO_PINB2_INITIAL_DIRDIO_PINB3_INITIAL_DIRDIO_PINB4_INITIAL_DIRDIO_PINB5_INITIAL_DIRDIO_PINB6_INITIAL_DIRDIO_PINB7_INITIAL_DIR" on integer constant
-../DIO_Program.c:46:1: error: invalid suffix "bDIO_PINC0_INITIAL_DIRDIO_PINC1_INITIAL_DIRDIO_PINC2_INITIAL_DIRDIO_PINC3_INITIAL_DIRDIO_PINC4_INITIAL_DIRDIO_PINC5_INITIAL_DIRDIO_PINC6_INITIAL_DIRDIO_PINC7_INITIAL_DIR" on integer constant
-../DIO_Program.c:55:1: error: invalid suffix "bDIO_PIND0_INITIAL_DIRDIO_PIND1_INITIAL_DIRDIO_PIND2_INITIAL_DIRDIO_PIND3_INITIAL_DIRDIO_PIND4_INITIAL_DIRDIO_PIND5_INITIAL_DIRDIO_PIND6_INITIAL_DIRDIO_PIND7_INITIAL_DIR" on integer constant
-../DIO_Program.c:65:1: error: invalid suffix "bDIO_PINA0_INITIAL_VALDIO_PINA1_INITIAL_VALDIO_PINA2_INITIAL_VALDIO_PINA3_INITIAL_VALDIO_PINA4_INITIAL_VALDIO_PINA5_INITIAL_VALDIO_PINA6_INITIAL_VALDIO_PINA7_INITIAL_VAL" on integer constant
-../DIO_Program.c:74:1: error: invalid suffix "bDIO_PINB0_INITIAL_VALDIO_PINB1_INITIAL_VALDIO_PINB2_INITIAL_VALDIO_PINB3_INITIAL_VALDIO_PINB4_INITIAL_VALDIO_PINB5_INITIAL_VALDIO_PINB6_INITIAL_VALDIO_PINB7_INITIAL_VAL" on integer constant
-../DIO_Program.c:83:1: error: invalid suffix "bDIO_PINC0_INITIAL_VALDIO_PINC1_INITIAL_VALDIO_PINC2_INITIAL_VALDIO_PINC3_INITIAL_VALDIO_PINC4_INITIAL_VALDIO_PINC5_INITIAL_VALDIO_PINC6_INITIAL_VALDIO_PINC7_INITIAL_VAL" on integer constant
-../DIO_Program.c:92:1: error: invalid suffix "bDIO_PIND0_INITIAL_VALDIO_PIND1_INITIAL_VALDIO_PIND2_INITIAL_VALDIO_PIND3_INITIAL_VALDIO_PIND4_INITIAL_VALDIO_PIND5_INITIAL_VALDIO_PIND6_INITIAL_VALDIO_PIND7_INITIAL_VAL" on integer constant
-make: *** [DIO_Program.o] Error 1
-22:49:24 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/3-STEPPER_MOTOR/stepper_motor.d" -MT"2-HAL/3-STEPPER_MOTOR/stepper_motor.o" -c -o "2-HAL/3-STEPPER_MOTOR/stepper_motor.o" "../2-HAL/3-STEPPER_MOTOR/stepper_motor.c"
+Finished building: ../2-HAL/3-STEPPER_MOTOR/stepper_motor.c
+ 
+Building file: ../2-HAL/2-KPD_4X4/KPD_4X4_Program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-../DIO_Program.c:28:1: error: invalid suffix "bDIO_PINA7_INITIAL_DIRDIO_PINA6_INITIAL_DIRDIO_PINA5_INITIAL_DIRDIO_PINA4_INITIAL_DIRDIO_PINA3_INITIAL_DIRDIO_PINA2_INITIAL_DIRDIO_PINA1_INITIAL_DIRDIO_PINA0_INITIAL_DIR" on integer constant
-../DIO_Program.c:37:1: error: invalid suffix "bDIO_PINB0_INITIAL_DIRDIO_PINB1_INITIAL_DIRDIO_PINB2_INITIAL_DIRDIO_PINB3_INITIAL_DIRDIO_PINB4_INITIAL_DIRDIO_PINB5_INITIAL_DIRDIO_PINB6_INITIAL_DIRDIO_PINB7_INITIAL_DIR" on integer constant
-../DIO_Program.c:46:1: error: invalid suffix "bDIO_PINC0_INITIAL_DIRDIO_PINC1_INITIAL_DIRDIO_PINC2_INITIAL_DIRDIO_PINC3_INITIAL_DIRDIO_PINC4_INITIAL_DIRDIO_PINC5_INITIAL_DIRDIO_PINC6_INITIAL_DIRDIO_PINC7_INITIAL_DIR" on integer constant
-../DIO_Program.c:55:1: error: invalid suffix "bDIO_PIND0_INITIAL_DIRDIO_PIND1_INITIAL_DIRDIO_PIND2_INITIAL_DIRDIO_PIND3_INITIAL_DIRDIO_PIND4_INITIAL_DIRDIO_PIND5_INITIAL_DIRDIO_PIND6_INITIAL_DIRDIO_PIND7_INITIAL_DIR" on integer constant
-../DIO_Program.c:65:1: error: invalid suffix "bDIO_PINA0_INITIAL_VALDIO_PINA1_INITIAL_VALDIO_PINA2_INITIAL_VALDIO_PINA3_INITIAL_VALDIO_PINA4_INITIAL_VALDIO_PINA5_INITIAL_VALDIO_PINA6_INITIAL_VALDIO_PINA7_INITIAL_VAL" on integer constant
-../DIO_Program.c:74:1: error: invalid suffix "bDIO_PINB0_INITIAL_VALDIO_PINB1_INITIAL_VALDIO_PINB2_INITIAL_VALDIO_PINB3_INITIAL_VALDIO_PINB4_INITIAL_VALDIO_PINB5_INITIAL_VALDIO_PINB6_INITIAL_VALDIO_PINB7_INITIAL_VAL" on integer constant
-../DIO_Program.c:83:1: error: invalid suffix "bDIO_PINC0_INITIAL_VALDIO_PINC1_INITIAL_VALDIO_PINC2_INITIAL_VALDIO_PINC3_INITIAL_VALDIO_PINC4_INITIAL_VALDIO_PINC5_INITIAL_VALDIO_PINC6_INITIAL_VALDIO_PINC7_INITIAL_VAL" on integer constant
-../DIO_Program.c:92:1: error: invalid suffix "bDIO_PIND0_INITIAL_VALDIO_PIND1_INITIAL_VALDIO_PIND2_INITIAL_VALDIO_PIND3_INITIAL_VALDIO_PIND4_INITIAL_VALDIO_PIND5_INITIAL_VALDIO_PIND6_INITIAL_VALDIO_PIND7_INITIAL_VAL" on integer constant
-make: *** [DIO_Program.o] Error 1
-22:52:12 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/2-KPD_4X4/KPD_4X4_Program.d" -MT"2-HAL/2-KPD_4X4/KPD_4X4_Program.o" -c -o "2-HAL/2-KPD_4X4/KPD_4X4_Program.o" "../2-HAL/2-KPD_4X4/KPD_4X4_Program.c"
+Finished building: ../2-HAL/2-KPD_4X4/KPD_4X4_Program.c
+ 
+Building file: ../2-HAL/1-LCD/CLCD_2x16_Program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-../DIO_Program.c:37:1: error: invalid suffix "bDIO_PINB0_INITIAL_DIRDIO_PINB1_INITIAL_DIRDIO_PINB2_INITIAL_DIRDIO_PINB3_INITIAL_DIRDIO_PINB4_INITIAL_DIRDIO_PINB5_INITIAL_DIRDIO_PINB6_INITIAL_DIRDIO_PINB7_INITIAL_DIR" on integer constant
-../DIO_Program.c:46:1: error: invalid suffix "bDIO_PINC0_INITIAL_DIRDIO_PINC1_INITIAL_DIRDIO_PINC2_INITIAL_DIRDIO_PINC3_INITIAL_DIRDIO_PINC4_INITIAL_DIRDIO_PINC5_INITIAL_DIRDIO_PINC6_INITIAL_DIRDIO_PINC7_INITIAL_DIR" on integer constant
-../DIO_Program.c:55:1: error: invalid suffix "bDIO_PIND0_INITIAL_DIRDIO_PIND1_INITIAL_DIRDIO_PIND2_INITIAL_DIRDIO_PIND3_INITIAL_DIRDIO_PIND4_INITIAL_DIRDIO_PIND5_INITIAL_DIRDIO_PIND6_INITIAL_DIRDIO_PIND7_INITIAL_DIR" on integer constant
-../DIO_Program.c:65:1: error: invalid suffix "bDIO_PINA0_INITIAL_VALDIO_PINA1_INITIAL_VALDIO_PINA2_INITIAL_VALDIO_PINA3_INITIAL_VALDIO_PINA4_INITIAL_VALDIO_PINA5_INITIAL_VALDIO_PINA6_INITIAL_VALDIO_PINA7_INITIAL_VAL" on integer constant
-../DIO_Program.c:74:1: error: invalid suffix "bDIO_PINB0_INITIAL_VALDIO_PINB1_INITIAL_VALDIO_PINB2_INITIAL_VALDIO_PINB3_INITIAL_VALDIO_PINB4_INITIAL_VALDIO_PINB5_INITIAL_VALDIO_PINB6_INITIAL_VALDIO_PINB7_INITIAL_VAL" on integer constant
-../DIO_Program.c:83:1: error: invalid suffix "bDIO_PINC0_INITIAL_VALDIO_PINC1_INITIAL_VALDIO_PINC2_INITIAL_VALDIO_PINC3_INITIAL_VALDIO_PINC4_INITIAL_VALDIO_PINC5_INITIAL_VALDIO_PINC6_INITIAL_VALDIO_PINC7_INITIAL_VAL" on integer constant
-../DIO_Program.c:92:1: error: invalid suffix "bDIO_PIND0_INITIAL_VALDIO_PIND1_INITIAL_VALDIO_PIND2_INITIAL_VALDIO_PIND3_INITIAL_VALDIO_PIND4_INITIAL_VALDIO_PIND5_INITIAL_VALDIO_PIND6_INITIAL_VALDIO_PIND7_INITIAL_VAL" on integer constant
-make: *** [DIO_Program.o] Error 1
-22:52:40 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/1-LCD/CLCD_2x16_Program.d" -MT"2-HAL/1-LCD/CLCD_2x16_Program.o" -c -o "2-HAL/1-LCD/CLCD_2x16_Program.o" "../2-HAL/1-LCD/CLCD_2x16_Program.c"
+Finished building: ../2-HAL/1-LCD/CLCD_2x16_Program.c
+ 
+Building file: ../2-HAL/0-SEVEN_SEG/7Seg_Program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-Finished building: ../DIO_Program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/0-SEVEN_SEG/7Seg_Program.d" -MT"2-HAL/0-SEVEN_SEG/7Seg_Program.o" -c -o "2-HAL/0-SEVEN_SEG/7Seg_Program.o" "../2-HAL/0-SEVEN_SEG/7Seg_Program.c"
+Finished building: ../2-HAL/0-SEVEN_SEG/7Seg_Program.c
+ 
+Building file: ../1-MCAL/9-I2C/I2C_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/9-I2C/I2C_Program.d" -MT"1-MCAL/9-I2C/I2C_Program.o" -c -o "1-MCAL/9-I2C/I2C_Program.o" "../1-MCAL/9-I2C/I2C_Program.c"
+Finished building: ../1-MCAL/9-I2C/I2C_Program.c
+ 
+Building file: ../1-MCAL/8-SPI/SPI_Master/SPI_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/8-SPI/SPI_Master/SPI_Program.d" -MT"1-MCAL/8-SPI/SPI_Master/SPI_Program.o" -c -o "1-MCAL/8-SPI/SPI_Master/SPI_Program.o" "../1-MCAL/8-SPI/SPI_Master/SPI_Program.c"
+Finished building: ../1-MCAL/8-SPI/SPI_Master/SPI_Program.c
+ 
+Building file: ../1-MCAL/7-USART/USART_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/7-USART/USART_Program.d" -MT"1-MCAL/7-USART/USART_Program.o" -c -o "1-MCAL/7-USART/USART_Program.o" "../1-MCAL/7-USART/USART_Program.c"
+../1-MCAL/7-USART/USART_Program.c: In function 'UART_VidTerminalPrintChar':
+../1-MCAL/7-USART/USART_Program.c:100: warning: pointer targets in passing argument 1 of 'UART_VidTransmitString' differ in signedness
+../1-MCAL/7-USART/USART_Program.c:106: warning: pointer targets in passing argument 1 of 'UART_VidTransmitString' differ in signedness
+Finished building: ../1-MCAL/7-USART/USART_Program.c
+ 
+Building file: ../1-MCAL/6-HW_ICU/HW_ICU.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/6-HW_ICU/HW_ICU.d" -MT"1-MCAL/6-HW_ICU/HW_ICU.o" -c -o "1-MCAL/6-HW_ICU/HW_ICU.o" "../1-MCAL/6-HW_ICU/HW_ICU.c"
+Finished building: ../1-MCAL/6-HW_ICU/HW_ICU.c
+ 
+Building file: ../1-MCAL/5-TIMER/TIMER_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/5-TIMER/TIMER_Program.d" -MT"1-MCAL/5-TIMER/TIMER_Program.o" -c -o "1-MCAL/5-TIMER/TIMER_Program.o" "../1-MCAL/5-TIMER/TIMER_Program.c"
+Finished building: ../1-MCAL/5-TIMER/TIMER_Program.c
+ 
+Building file: ../1-MCAL/4-ADC/ADC_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/4-ADC/ADC_Program.d" -MT"1-MCAL/4-ADC/ADC_Program.o" -c -o "1-MCAL/4-ADC/ADC_Program.o" "../1-MCAL/4-ADC/ADC_Program.c"
+Finished building: ../1-MCAL/4-ADC/ADC_Program.c
+ 
+Building file: ../1-MCAL/3-GIE/GI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/3-GIE/GI_program.d" -MT"1-MCAL/3-GIE/GI_program.o" -c -o "1-MCAL/3-GIE/GI_program.o" "../1-MCAL/3-GIE/GI_program.c"
+Finished building: ../1-MCAL/3-GIE/GI_program.c
+ 
+Building file: ../1-MCAL/2-EXTI/V2.0/EXTI_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/2-EXTI/V2.0/EXTI_Program.d" -MT"1-MCAL/2-EXTI/V2.0/EXTI_Program.o" -c -o "1-MCAL/2-EXTI/V2.0/EXTI_Program.o" "../1-MCAL/2-EXTI/V2.0/EXTI_Program.c"
+Finished building: ../1-MCAL/2-EXTI/V2.0/EXTI_Program.c
+ 
+Building file: ../1-MCAL/1-DIO/DIO_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/1-DIO/DIO_Program.d" -MT"1-MCAL/1-DIO/DIO_Program.o" -c -o "1-MCAL/1-DIO/DIO_Program.o" "../1-MCAL/1-DIO/DIO_Program.c"
+Finished building: ../1-MCAL/1-DIO/DIO_Program.c
  
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 Finished building: ../main.c
  
-Building target: Smart_Home.elf
+Building target: Smart_Home_Master.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
+avr-gcc -Wl,-Map,Smart_Home_Master.map -mmcu=atmega32 -o "Smart_Home_Master.elf"  ./2-HAL/4-SERVO_MOTOR/servo.o  ./2-HAL/3-STEPPER_MOTOR/stepper_motor.o  ./2-HAL/2-KPD_4X4/KPD_4X4_Program.o  ./2-HAL/1-LCD/CLCD_2x16_Program.o  ./2-HAL/0-SEVEN_SEG/7Seg_Program.o  ./1-MCAL/9-I2C/I2C_Program.o  ./1-MCAL/8-SPI/SPI_Master/SPI_Program.o  ./1-MCAL/7-USART/USART_Program.o  ./1-MCAL/6-HW_ICU/HW_ICU.o  ./1-MCAL/5-TIMER/TIMER_Program.o  ./1-MCAL/4-ADC/ADC_Program.o  ./1-MCAL/3-GIE/GI_program.o  ./1-MCAL/2-EXTI/V2.0/EXTI_Program.o  ./1-MCAL/1-DIO/DIO_Program.o  ./main.o   
+Finished building target: Smart_Home_Master.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
+avr-objdump -h -S Smart_Home_Master.elf  >"Smart_Home_Master.lss"
+Finished building: Smart_Home_Master.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home_Master.elf  "Smart_Home_Master.hex"
+Finished building: Smart_Home_Master.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+avr-size --format=avr --mcu=atmega32 Smart_Home_Master.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2112 bytes (6.4% Full)
+Program:   14724 bytes (44.9% Full)
 (.text + .data + .bootloader)
 
-Data:          4 bytes (0.2% Full)
+Data:        354 bytes (17.3% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-22:54:33 **** Incremental Build of configuration Debug for project Smart_Home ****
+16:21:21 **** Incremental Build of configuration Debug for project Smart_Home_Master ****
 make all 
-Building file: ../DIO_Program.c
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Smart_Home_Master.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   14724 bytes (44.9% Full)
+(.text + .data + .bootloader)
+
+Data:        354 bytes (17.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:21:21 **** Build of configuration Debug for project Smart_Home_Slave ****
+make all 
+Building file: ../2-HAL/4-SERVO_MOTOR/servo.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-Finished building: ../DIO_Program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/4-SERVO_MOTOR/servo.d" -MT"2-HAL/4-SERVO_MOTOR/servo.o" -c -o "2-HAL/4-SERVO_MOTOR/servo.o" "../2-HAL/4-SERVO_MOTOR/servo.c"
+Finished building: ../2-HAL/4-SERVO_MOTOR/servo.c
+ 
+Building file: ../2-HAL/3-STEPPER_MOTOR/stepper_motor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/3-STEPPER_MOTOR/stepper_motor.d" -MT"2-HAL/3-STEPPER_MOTOR/stepper_motor.o" -c -o "2-HAL/3-STEPPER_MOTOR/stepper_motor.o" "../2-HAL/3-STEPPER_MOTOR/stepper_motor.c"
+Finished building: ../2-HAL/3-STEPPER_MOTOR/stepper_motor.c
+ 
+Building file: ../2-HAL/2-KPD_4X4/KPD_4X4_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/2-KPD_4X4/KPD_4X4_Program.d" -MT"2-HAL/2-KPD_4X4/KPD_4X4_Program.o" -c -o "2-HAL/2-KPD_4X4/KPD_4X4_Program.o" "../2-HAL/2-KPD_4X4/KPD_4X4_Program.c"
+Finished building: ../2-HAL/2-KPD_4X4/KPD_4X4_Program.c
+ 
+Building file: ../2-HAL/1-LCD/CLCD_2x16_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/1-LCD/CLCD_2x16_Program.d" -MT"2-HAL/1-LCD/CLCD_2x16_Program.o" -c -o "2-HAL/1-LCD/CLCD_2x16_Program.o" "../2-HAL/1-LCD/CLCD_2x16_Program.c"
+Finished building: ../2-HAL/1-LCD/CLCD_2x16_Program.c
+ 
+Building file: ../2-HAL/0-SEVEN_SEG/7Seg_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"2-HAL/0-SEVEN_SEG/7Seg_Program.d" -MT"2-HAL/0-SEVEN_SEG/7Seg_Program.o" -c -o "2-HAL/0-SEVEN_SEG/7Seg_Program.o" "../2-HAL/0-SEVEN_SEG/7Seg_Program.c"
+Finished building: ../2-HAL/0-SEVEN_SEG/7Seg_Program.c
+ 
+Building file: ../1-MCAL/9-I2C/I2C_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/9-I2C/I2C_Program.d" -MT"1-MCAL/9-I2C/I2C_Program.o" -c -o "1-MCAL/9-I2C/I2C_Program.o" "../1-MCAL/9-I2C/I2C_Program.c"
+Finished building: ../1-MCAL/9-I2C/I2C_Program.c
+ 
+Building file: ../1-MCAL/8-SPI/SPI_Slave/SPI_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/8-SPI/SPI_Slave/SPI_Program.d" -MT"1-MCAL/8-SPI/SPI_Slave/SPI_Program.o" -c -o "1-MCAL/8-SPI/SPI_Slave/SPI_Program.o" "../1-MCAL/8-SPI/SPI_Slave/SPI_Program.c"
+Finished building: ../1-MCAL/8-SPI/SPI_Slave/SPI_Program.c
+ 
+Building file: ../1-MCAL/7-USART/USART_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/7-USART/USART_Program.d" -MT"1-MCAL/7-USART/USART_Program.o" -c -o "1-MCAL/7-USART/USART_Program.o" "../1-MCAL/7-USART/USART_Program.c"
+../1-MCAL/7-USART/USART_Program.c: In function 'UART_VidTerminalPrintChar':
+../1-MCAL/7-USART/USART_Program.c:100: warning: pointer targets in passing argument 1 of 'UART_VidTransmitString' differ in signedness
+../1-MCAL/7-USART/USART_Program.c:106: warning: pointer targets in passing argument 1 of 'UART_VidTransmitString' differ in signedness
+Finished building: ../1-MCAL/7-USART/USART_Program.c
+ 
+Building file: ../1-MCAL/6-HW_ICU/HW_ICU.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/6-HW_ICU/HW_ICU.d" -MT"1-MCAL/6-HW_ICU/HW_ICU.o" -c -o "1-MCAL/6-HW_ICU/HW_ICU.o" "../1-MCAL/6-HW_ICU/HW_ICU.c"
+Finished building: ../1-MCAL/6-HW_ICU/HW_ICU.c
+ 
+Building file: ../1-MCAL/5-TIMER/TIMER_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/5-TIMER/TIMER_Program.d" -MT"1-MCAL/5-TIMER/TIMER_Program.o" -c -o "1-MCAL/5-TIMER/TIMER_Program.o" "../1-MCAL/5-TIMER/TIMER_Program.c"
+Finished building: ../1-MCAL/5-TIMER/TIMER_Program.c
+ 
+Building file: ../1-MCAL/4-ADC/ADC_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/4-ADC/ADC_Program.d" -MT"1-MCAL/4-ADC/ADC_Program.o" -c -o "1-MCAL/4-ADC/ADC_Program.o" "../1-MCAL/4-ADC/ADC_Program.c"
+Finished building: ../1-MCAL/4-ADC/ADC_Program.c
+ 
+Building file: ../1-MCAL/3-GIE/GI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/3-GIE/GI_program.d" -MT"1-MCAL/3-GIE/GI_program.o" -c -o "1-MCAL/3-GIE/GI_program.o" "../1-MCAL/3-GIE/GI_program.c"
+Finished building: ../1-MCAL/3-GIE/GI_program.c
+ 
+Building file: ../1-MCAL/2-EXTI/V2.0/EXTI_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/2-EXTI/V2.0/EXTI_Program.d" -MT"1-MCAL/2-EXTI/V2.0/EXTI_Program.o" -c -o "1-MCAL/2-EXTI/V2.0/EXTI_Program.o" "../1-MCAL/2-EXTI/V2.0/EXTI_Program.c"
+Finished building: ../1-MCAL/2-EXTI/V2.0/EXTI_Program.c
+ 
+Building file: ../1-MCAL/1-DIO/DIO_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"1-MCAL/1-DIO/DIO_Program.d" -MT"1-MCAL/1-DIO/DIO_Program.o" -c -o "1-MCAL/1-DIO/DIO_Program.o" "../1-MCAL/1-DIO/DIO_Program.c"
+Finished building: ../1-MCAL/1-DIO/DIO_Program.c
  
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c: In function 'main':
-../main.c:15: warning: implicit declaration of function 'DIO_VidInit'
 Finished building: ../main.c
  
-Building target: Smart_Home.elf
+Building target: Smart_Home_Slave.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
+avr-gcc -Wl,-Map,Smart_Home_Slave.map -mmcu=atmega32 -o "Smart_Home_Slave.elf"  ./2-HAL/4-SERVO_MOTOR/servo.o  ./2-HAL/3-STEPPER_MOTOR/stepper_motor.o  ./2-HAL/2-KPD_4X4/KPD_4X4_Program.o  ./2-HAL/1-LCD/CLCD_2x16_Program.o  ./2-HAL/0-SEVEN_SEG/7Seg_Program.o  ./1-MCAL/9-I2C/I2C_Program.o  ./1-MCAL/8-SPI/SPI_Slave/SPI_Program.o  ./1-MCAL/7-USART/USART_Program.o  ./1-MCAL/6-HW_ICU/HW_ICU.o  ./1-MCAL/5-TIMER/TIMER_Program.o  ./1-MCAL/4-ADC/ADC_Program.o  ./1-MCAL/3-GIE/GI_program.o  ./1-MCAL/2-EXTI/V2.0/EXTI_Program.o  ./1-MCAL/1-DIO/DIO_Program.o  ./main.o   
+Finished building target: Smart_Home_Slave.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
+avr-objdump -h -S Smart_Home_Slave.elf  >"Smart_Home_Slave.lss"
+Finished building: Smart_Home_Slave.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home_Slave.elf  "Smart_Home_Slave.hex"
+Finished building: Smart_Home_Slave.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+avr-size --format=avr --mcu=atmega32 Smart_Home_Slave.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2116 bytes (6.5% Full)
+Program:   14680 bytes (44.8% Full)
 (.text + .data + .bootloader)
 
-Data:          4 bytes (0.2% Full)
+Data:        354 bytes (17.3% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-22:59:15 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2116 bytes (6.5% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-16:26:06 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2116 bytes (6.5% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-16:30:46 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-Finished building: ../DIO_Program.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2118 bytes (6.5% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-16:34:52 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-Finished building: ../DIO_Program.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2118 bytes (6.5% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-16:52:17 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c: In function 'main':
-../main.c:23: error: 'DIO' undeclared (first use in this function)
-../main.c:23: error: (Each undeclared identifier is reported only once
-../main.c:23: error: for each function it appears in.)
-../main.c:24: error: expected ';' before '}' token
-make: *** [main.o] Error 1
-17:08:56 **** Incremental Build of configuration Debug for project Smart_Home ****
+16:22:38 **** Incremental Build of configuration Debug for project Smart_Home_Master ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 Finished building: ../main.c
  
-Building target: Smart_Home.elf
+Building target: Smart_Home_Master.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
+avr-gcc -Wl,-Map,Smart_Home_Master.map -mmcu=atmega32 -o "Smart_Home_Master.elf"  ./2-HAL/4-SERVO_MOTOR/servo.o  ./2-HAL/3-STEPPER_MOTOR/stepper_motor.o  ./2-HAL/2-KPD_4X4/KPD_4X4_Program.o  ./2-HAL/1-LCD/CLCD_2x16_Program.o  ./2-HAL/0-SEVEN_SEG/7Seg_Program.o  ./1-MCAL/9-I2C/I2C_Program.o  ./1-MCAL/8-SPI/SPI_Master/SPI_Program.o  ./1-MCAL/7-USART/USART_Program.o  ./1-MCAL/6-HW_ICU/HW_ICU.o  ./1-MCAL/5-TIMER/TIMER_Program.o  ./1-MCAL/4-ADC/ADC_Program.o  ./1-MCAL/3-GIE/GI_program.o  ./1-MCAL/2-EXTI/V2.0/EXTI_Program.o  ./1-MCAL/1-DIO/DIO_Program.o  ./main.o   
+Finished building target: Smart_Home_Master.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
+avr-objdump -h -S Smart_Home_Master.elf  >"Smart_Home_Master.lss"
+Finished building: Smart_Home_Master.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home_Master.elf  "Smart_Home_Master.hex"
+Finished building: Smart_Home_Master.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+avr-size --format=avr --mcu=atmega32 Smart_Home_Master.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2218 bytes (6.8% Full)
+Program:   14724 bytes (44.9% Full)
 (.text + .data + .bootloader)
 
-Data:          4 bytes (0.2% Full)
+Data:        354 bytes (17.3% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-17:10:48 **** Incremental Build of configuration Debug for project Smart_Home ****
+16:22:39 **** Incremental Build of configuration Debug for project Smart_Home_Slave ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 Finished building: ../main.c
  
-Building target: Smart_Home.elf
+Building target: Smart_Home_Slave.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
+avr-gcc -Wl,-Map,Smart_Home_Slave.map -mmcu=atmega32 -o "Smart_Home_Slave.elf"  ./2-HAL/4-SERVO_MOTOR/servo.o  ./2-HAL/3-STEPPER_MOTOR/stepper_motor.o  ./2-HAL/2-KPD_4X4/KPD_4X4_Program.o  ./2-HAL/1-LCD/CLCD_2x16_Program.o  ./2-HAL/0-SEVEN_SEG/7Seg_Program.o  ./1-MCAL/9-I2C/I2C_Program.o  ./1-MCAL/8-SPI/SPI_Slave/SPI_Program.o  ./1-MCAL/7-USART/USART_Program.o  ./1-MCAL/6-HW_ICU/HW_ICU.o  ./1-MCAL/5-TIMER/TIMER_Program.o  ./1-MCAL/4-ADC/ADC_Program.o  ./1-MCAL/3-GIE/GI_program.o  ./1-MCAL/2-EXTI/V2.0/EXTI_Program.o  ./1-MCAL/1-DIO/DIO_Program.o  ./main.o   
+Finished building target: Smart_Home_Slave.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
+avr-objdump -h -S Smart_Home_Slave.elf  >"Smart_Home_Slave.lss"
+Finished building: Smart_Home_Slave.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home_Slave.elf  "Smart_Home_Slave.hex"
+Finished building: Smart_Home_Slave.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
+avr-size --format=avr --mcu=atmega32 Smart_Home_Slave.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2318 bytes (7.1% Full)
+Program:   14680 bytes (44.8% Full)
 (.text + .data + .bootloader)
 
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:11:10 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2318 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:12:57 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../DIO_Program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
-Finished building: ../DIO_Program.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2316 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:13:25 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2316 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:16:00 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2316 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:16:19 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2316 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:16:38 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2316 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-17:16:53 **** Incremental Build of configuration Debug for project Smart_Home ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: Smart_Home.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Smart_Home.map -mmcu=atmega32 -o "Smart_Home.elf"  ./DIO_Program.o ./main.o   
-Finished building target: Smart_Home.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Smart_Home.elf  >"Smart_Home.lss"
-Finished building: Smart_Home.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Smart_Home.elf  "Smart_Home.hex"
-Finished building: Smart_Home.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 Smart_Home.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    2316 bytes (7.1% Full)
-(.text + .data + .bootloader)
-
-Data:          4 bytes (0.2% Full)
+Data:        354 bytes (17.3% Full)
 (.data + .bss + .noinit)
 
 

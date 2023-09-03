@@ -1,0 +1,152 @@
+/*
+ * TIMER_Program.c
+ *
+ *  Created on: Aug 20, 2023
+ *      Author: ma257
+ */
+/* LIB */
+#include "../../0-LIB/STD_TYPES.h"
+#include "../../0-LIB/BIT_MATH.h"
+
+#include "TIMER_Interface.h"
+#include <avr/io.h>
+//#include "../1-DIO/DIO_Interface.h"
+
+/********************************	TIMER0	 *********************************/
+void TIMER0_VidOvfInit(void)
+{
+	//1- Set the Wave Generation mode as normal
+	CLR_BIT(TCCR0, WGM00);
+	CLR_BIT(TCCR0, WGM01);
+
+	//2- Enable Overflow Interrupt
+	SET_BIT(TIMSK, TOIE0);
+
+	//3- Set the prescaler 8Mhz / 8 = 1Mhz --> Timer Freq
+	CLR_BIT(TCCR0, CS00);
+	SET_BIT(TCCR0, CS01);
+	CLR_BIT(TCCR0, CS02);
+
+}
+
+void TIMER0_VidOvfTCNTValue(u8 Copy_U8OvfTCNTVal)
+{
+	TCNT0 = Copy_U8OvfTCNTVal;
+}
+
+void TIMER0_VidCTCInit(void)
+{
+	//1- Set the Wave Generation mode as CTC
+	CLR_BIT(TCCR0, WGM00);
+	SET_BIT(TCCR0, WGM01);
+
+
+	//2- Enable CTC Interrupt
+	SET_BIT(TIMSK, OCIE0);
+
+//	//3- Set the prescaler 8Mhz / 8 = 1Mhz --> Timer Freq
+//	CLR_BIT(TCCR0, CS00);
+//	SET_BIT(TCCR0, CS01);
+//	CLR_BIT(TCCR0, CS02);
+
+	//3- Set the prescaler 8Mhz / 64 = 125Khz --> Timer Freq
+	SET_BIT(TCCR0, CS00);
+	SET_BIT(TCCR0, CS01);
+	CLR_BIT(TCCR0, CS02);
+
+}
+
+void TIMER0_VidOCR0Value(u8 Copy_U8CTCOCRVal)
+{
+	OCR0 = Copy_U8CTCOCRVal;
+}
+
+void TIMER0_VidFastPWMInit(void)
+{
+	//1- Set the Wave Generation mode as Fast PWM
+	SET_BIT(TCCR0, WGM00);
+	SET_BIT(TCCR0, WGM01);
+
+	//2- Clear on Compare, Set on top
+	CLR_BIT(TCCR0, COM00);
+	SET_BIT(TCCR0, COM01);
+
+	//3- Set the prescaler 8Mhz / 8 = 1Mhz --> Timer Freq
+	CLR_BIT(TCCR0, CS00);
+	SET_BIT(TCCR0, CS01);
+	CLR_BIT(TCCR0, CS02);
+}
+
+//void __vector_10(void)
+//{
+//
+//	static u16 counter = 0;
+//	counter++;
+//	/*   CTC Mode First App   */
+////	if(counter == 4000)
+////	{
+////		counter = 0;
+////		//Do Action every 1s
+////		DIO_VidTogglePinValue(DIO_U8_PORTA, DIO_U8_PIN8);
+////	}
+//
+//
+//	/*   PWM Application   */
+//	if(counter == 5)
+//	{
+//		//High for 5ms
+//		DIO_VidSetPinValue(DIO_U8_PORTA, DIO_U8_PIN0, DIO_PIN_HIGH);
+//	}
+//	else if(counter == 20)
+//	{
+//		//Low for 15ms
+//		counter = 0;
+//		DIO_VidSetPinValue(DIO_U8_PORTA, DIO_U8_PIN0, DIO_PIN_LOW);
+//	}
+//}
+
+
+//void __vector_11(void)
+//{
+//	static u16 counter = 0;
+//	counter++;
+//
+//	/*   Ovf Mode First App : 3906.25 --> Ticks_count */
+//	if(counter == 3907)
+//	{
+//		counter = 0;
+//		TCNT0 = 192;
+//		//Do Action every 1s
+//		DIO_VidTogglePinValue(DIO_U8_PORTA, DIO_U8_PIN0);
+//	}
+//}
+/*****************************************************************************/
+/********************************	TIMER1	 *********************************/
+void TIMER1_VidInit(void)
+{
+	//Non-Inverted PWM
+	CLR_BIT(TCCR1A, COM1A0);
+	SET_BIT(TCCR1A, COM1A1);
+
+	//Set the prescaler by 8
+	CLR_BIT(TCCR1B, CS10);
+	SET_BIT(TCCR1B, CS11);
+	CLR_BIT(TCCR1B, CS12);
+
+	//Fast PWM with ICR1
+	SET_BIT(TCCR1B, WGM13);
+	SET_BIT(TCCR1B, WGM12);
+	SET_BIT(TCCR1A, WGM11);
+	CLR_BIT(TCCR1A, WGM10);
+}
+
+void TIMER1_VidSetICR1Value(u16 Copy_U16ICR1Val)
+{
+	ICR1 = Copy_U16ICR1Val;
+}
+
+void TIMER1_VidSetOCR1AValue(u16 Copy_U16OCR1AVal)
+{
+	OCR1A = Copy_U16OCR1AVal;
+}
+/*****************************************************************************/
